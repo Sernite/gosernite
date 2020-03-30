@@ -11,3 +11,6 @@ type HandleFunc func(SendFunc, NitMsg)
 
 // DoneFunc : Exits script with an error
 type DoneFunc func(string)
+
+// ErrorFunc :
+type ErrorFunc func(string)

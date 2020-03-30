@@ -22,10 +22,16 @@ func SetHandler(h HandleFunc){
 var send SendFunc
 var nitMessage NitMsg
 
+// LogError : 
+var LogError ErrorFunc
+
 func init(){
 	reader := bufio.NewReader(os.Stdin)
 	send = func(message string){
-		fmt.Println(message)
+		fmt.Fprintf(os.Stdout,"%s\n",message)
+	}
+	LogError = func(msg string){
+		fmt.Fprintf(os.Stderr,"err;;;1;;;%s\n",msg)
 	}
 
 	nitMessage = func(name string,message string)string{
